@@ -44,6 +44,7 @@ if uploaded_file is not None:
         array = np.expand_dims(array, axis=0)
         with st.spinner("Analyzing image..."):
             score = float(model.predict(array, verbose=0)[0][0])
+            st.write("Raw model score:", score)
         st.subheader("📋 Prediction Result")
         if score >= 0.5:
             st.error("Model prediction: PNEUMONIA")
